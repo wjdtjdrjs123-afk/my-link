@@ -1,8 +1,8 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #f4eed9; /* Warm off-white background */
+  --foreground: #000000;
 }
 
 @theme inline {
@@ -10,34 +10,36 @@
   --color-foreground: var(--foreground);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
-
-  --animate-fade-up: fade-up 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-  --animate-fade-in: fade-in 1s ease-out forwards;
-  --animate-glow: glow 3s ease-in-out infinite alternate;
-
-  @keyframes fade-up {
-    from { opacity: 0; transform: translateY(30px); }
-    to { opacity: 1; transform: translateY(0); }
-  }
-  @keyframes fade-in {
-    from { opacity: 0; }
-    to { opacity: 1; }
-  }
-  @keyframes glow {
-    0% { box-shadow: 0 0 15px rgba(139, 92, 246, 0.2); }
-    100% { box-shadow: 0 0 25px rgba(139, 92, 246, 0.6), 0 0 45px rgba(59, 130, 246, 0.4); }
-  }
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-sans), Arial, Helvetica, sans-serif;
+  overflow-x: hidden;
+}
+
+/* Neobrutalism Utilities */
+.brutal-border {
+  border: 3px solid #000000;
+}
+
+.brutal-shadow {
+  box-shadow: 6px 6px 0px 0px #000000;
+  transition: all 0.2s ease-in-out;
+}
+
+.brutal-shadow:hover {
+  box-shadow: 2px 2px 0px 0px #000000;
+  transform: translate(4px, 4px);
+}
+
+.brutal-shadow-sm {
+  box-shadow: 3px 3px 0px 0px #000000;
+  transition: all 0.2s ease-in-out;
+}
+
+.brutal-shadow-sm:hover {
+  box-shadow: 1px 1px 0px 0px #000000;
+  transform: translate(2px, 2px);
 }

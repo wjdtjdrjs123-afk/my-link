@@ -1,159 +1,187 @@
-import Image from "next/image";
+import React from "react";
 
 export default function Home() {
   return (
-    <div className="relative min-h-screen bg-black text-zinc-100 overflow-hidden font-sans selection:bg-purple-500/30">
-      {/* Background Effects */}
-      <div className="fixed inset-0 z-0 pointer-events-none">
-        <div className="absolute top-[-10%] -left-1/4 w-[150%] h-[50vh] bg-gradient-to-r from-violet-600/20 via-fuchsia-600/10 to-blue-600/20 blur-[120px] rounded-full" />
-        <div className="absolute bottom-[-10%] -right-1/4 w-[150%] h-[60vh] bg-gradient-to-r from-blue-600/10 via-indigo-600/10 to-violet-600/20 blur-[120px] rounded-full" />
-        <div className="absolute inset-0 bg-[linear-gradient(to_right,#ffffff0a_1px,transparent_1px),linear-gradient(to_bottom,#ffffff0a_1px,transparent_1px)] bg-[size:24px_24px]" />
-      </div>
+    <div className="relative min-h-screen font-sans selection:bg-black selection:text-white bg-[var(--background)]">
+      {/* Background Dots Grid */}
+      <div className="fixed inset-0 z-0 pointer-events-none opacity-20 bg-[radial-gradient(#000_1px,transparent_1px)] [background-size:24px_24px]" />
 
-      <main className="relative z-10 flex w-full max-w-3xl mx-auto flex-col px-6 py-20 sm:p-20 gap-16 min-h-screen justify-center">
-        {/* Profile Header */}
-        <section className="flex flex-col items-start gap-6">
-          <div className="relative flex h-28 w-28 shrink-0 items-center justify-center overflow-hidden rounded-full border border-zinc-800 bg-zinc-900 shadow-[0_0_40px_rgba(139,92,246,0.15)] transition-transform duration-500 hover:scale-105 group">
-            <div className="absolute inset-0 bg-gradient-to-br from-indigo-500 to-purple-500 opacity-20 group-hover:opacity-40 transition-opacity" />
-            <div className="relative z-10 bg-gradient-to-br from-indigo-400 to-fuchsia-400 bg-clip-text text-4xl font-extrabold text-transparent">
-              YS
-            </div>
-          </div>
-          
-          <div className="space-y-3">
-            <h1 className="text-4xl font-extrabold tracking-tight sm:text-6xl text-white">
-              윤창식
+      <main className="relative z-10 w-full max-w-6xl mx-auto flex flex-col px-6 py-16 sm:p-16 lg:p-24 gap-16">
+        
+        {/* Navigation / Header */}
+        <header className="flex justify-between items-end border-b-4 border-black pb-6 mb-8 mt-4">
+          <div>
+            <span className="bg-black text-white px-3 py-1 text-sm font-bold uppercase tracking-widest brutal-shadow-sm inline-block rotate-[-2deg] mb-2">Portfolio</span>
+            <h1 className="text-5xl sm:text-7xl lg:text-8xl font-black uppercase tracking-tighter leading-none mt-2">
+              Chang-Sik
             </h1>
-            <p className="text-xl sm:text-2xl font-medium bg-gradient-to-r from-indigo-300 via-purple-300 to-fuchsia-300 bg-clip-text text-transparent">
-              Front-end Engineer & AI Agent Pipeline Architect
-            </p>
+          </div>
+          <div className="hidden sm:flex gap-3">
+             <a href="https://caesiumy.dev" target="_blank" className="bg-yellow-400 brutal-border brutal-shadow px-4 py-2 font-bold text-lg hover:bg-yellow-300">Blog</a>
+             <a href="https://github.com/caesiumy" target="_blank" className="bg-white brutal-border brutal-shadow px-4 py-2 font-bold text-lg hover:bg-zinc-100">GitHub</a>
+          </div>
+        </header>
+
+        {/* Hero Section */}
+        <section className="flex flex-col gap-6">
+          <div className="bg-cyan-400 brutal-border brutal-shadow p-8 sm:p-12 lg:p-16 transform -rotate-1 hover:rotate-0 transition-transform flex flex-col gap-4">
+             <h2 className="text-4xl sm:text-6xl font-black uppercase leading-[1.1]">
+               Front-end Engineer<br/>
+               <span className="bg-black text-white px-2 inline-block -rotate-1 mt-2 lg:mt-4">& AI Educator</span>
+             </h2>
+             <p className="text-xl sm:text-3xl font-bold mt-4 leading-tight">
+               AI 에이전트를 개발 워크플로우에 통합하여<br className="hidden sm:block"/>
+               생산성을 극대화하는 <span className="underline decoration-4 decoration-pink-500">AI-Native 개발 방식</span>을 지향합니다.
+             </p>
           </div>
         </section>
 
-        {/* Introduction */}
-        <section>
-          <div className="relative rounded-3xl border border-zinc-800/60 bg-zinc-900/40 backdrop-blur-xl p-8 sm:p-10 shadow-2xl transition-all duration-300 hover:border-zinc-700/50 hover:bg-zinc-900/60 flex flex-col gap-4">
-            <svg 
-              className="absolute text-zinc-800/50 h-32 w-32 -top-4 -right-4 -z-10 rotate-12" 
-              fill="currentColor" viewBox="0 0 24 24"
-            >
-              <path d="M14.017 21v-7.391c0-5.714-4.675-10.389-10.389-10.389h-3.628v3.628h3.628c3.713 0 6.761 3.048 6.761 6.761v7.391h3.628zm10 0v-7.391c0-5.714-4.675-10.389-10.389-10.389h-3.628v3.628h3.628c3.713 0 6.761 3.048 6.761 6.761v7.391h3.628z" />
-            </svg>
-            <p className="text-lg leading-relaxed text-zinc-300 relative z-10">
-              AI 에이전트를 개발 워크플로우에 통합하여 생산성을 극대화하는 <strong className="font-semibold text-white bg-indigo-500/20 px-1.5 py-0.5 rounded border border-indigo-500/30">AI-Native 개발 방식</strong>을 지향합니다. 
-              기술적 깊이와 교육적 역량을 바탕으로 지속 가능한 소프트웨어 아키텍처를 설계합니다.
-            </p>
-          </div>
-        </section>
-
-        {/* Key Expertise (Cards) */}
-        <section className="w-full space-y-6">
-          <div className="flex items-center gap-4">
-             <div className="h-10 w-10 shrink-0 rounded-2xl bg-gradient-to-br from-blue-500/10 to-purple-500/10 flex items-center justify-center border border-zinc-700/50">
-               <svg className="h-5 w-5 text-indigo-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
-               </svg>
-             </div>
-             <h2 className="text-2xl font-bold tracking-tight">Expertise</h2>
-          </div>
-          <div className="grid w-full grid-cols-1 gap-4 sm:grid-cols-2">
-            
-            {/* Tech Stack Card */}
-            <div className="group relative overflow-hidden rounded-3xl border border-zinc-800/60 bg-zinc-900/40 p-6 backdrop-blur-md transition-all duration-300 hover:border-zinc-700/80 hover:-translate-y-1 hover:shadow-[0_10px_30px_rgba(0,0,0,0.5)]">
-              <div className="absolute inset-0 bg-gradient-to-br from-blue-500/5 to-purple-500/5 opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
-              <div className="relative z-10">
-                <h3 className="mb-4 text-xl font-semibold flex items-center gap-2 text-zinc-100">
-                   Tech Stack
-                </h3>
-                <div className="flex flex-wrap gap-2">
-                  {['TypeScript', 'Next.js', 'React', 'TailwindCSS', 'FSD', 'Turborepo'].map(tech => (
-                    <span key={tech} className="rounded-full border border-zinc-700/50 bg-zinc-800/50 px-3 py-1.5 text-xs font-medium text-zinc-300 shadow-sm transition-colors group-hover:border-indigo-500/40 group-hover:text-white">
-                      {tech}
-                    </span>
-                  ))}
+        {/* Intro & Background (2 Column Layout on lg) */}
+        <section className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12">
+           {/* Background Story */}
+           <div className="bg-pink-400 brutal-border brutal-shadow p-8 flex flex-col gap-6">
+              <div className="flex items-center gap-4 border-b-2 border-black pb-4">
+                <div className="w-4 h-4 rounded-full bg-black"></div>
+                <h3 className="text-3xl font-black uppercase">My Background</h3>
+              </div>
+              <p className="text-lg sm:text-xl font-bold leading-relaxed">
+                <span className="bg-white px-1 border-2 border-black inline-block mb-1">비전공자 출신</span>의 한계를 강점으로 승화시켰습니다. 
+                영문학 전공의 인문학적 소양에 컴퓨터공학 복수전공으로 논리력을 더했습니다. 
+                현재는 지식의 나눔을 실천하는 명확하고 깊이 있는 교육자로도 활동 중입니다.
+              </p>
+           </div>
+           
+           {/* Publication */}
+           <div className="bg-white brutal-border brutal-shadow p-8 flex flex-col gap-6">
+              <div className="flex items-center gap-4 border-b-2 border-black pb-4">
+                <div className="w-0 h-0 border-l-[10px] border-r-[10px] border-b-[16px] border-transparent border-b-black rotate-90"></div>
+                <h3 className="text-3xl font-black uppercase">Publication</h3>
+              </div>
+              <div className="flex flex-col gap-3">
+                <div className="bg-yellow-300 border-2 border-black p-4 brutal-shadow-sm">
+                  <span className="text-sm font-bold bg-black text-white px-2 py-1 uppercase inline-block mb-2">역자</span>
+                  <h4 className="text-xl font-black">자바스크립트 + 리액트 디자인 패턴</h4>
+                  <p className="font-bold mt-2">현대적인 프론트엔드 환경에 맞춘 설계와 아키텍처 패턴을 국내에 소개하며 기술 생태계 발전에 기여했습니다.</p>
                 </div>
               </div>
-            </div>
-
-            {/* AI-Native Card */}
-            <div className="group relative overflow-hidden rounded-3xl border border-zinc-800/60 bg-zinc-900/40 p-6 backdrop-blur-md transition-all duration-300 hover:border-zinc-700/80 hover:-translate-y-1 hover:shadow-[0_10px_30px_rgba(0,0,0,0.5)]">
-              <div className="absolute inset-0 bg-gradient-to-br from-fuchsia-500/5 to-pink-500/5 opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
-              <div className="relative z-10">
-                <h3 className="mb-4 text-xl font-semibold flex items-center gap-2 text-zinc-100">
-                   AI-Native
-                </h3>
-                <div className="flex flex-wrap gap-2">
-                  {['Claude Code', 'MCP', 'AI Agent Workflow', 'LLM Integration'].map(tech => (
-                    <span key={tech} className="rounded-full border border-zinc-700/50 bg-zinc-800/50 px-3 py-1.5 text-xs font-medium text-zinc-300 shadow-sm transition-colors group-hover:border-fuchsia-500/40 group-hover:text-white">
-                      {tech}
-                    </span>
-                  ))}
-                </div>
-              </div>
-            </div>
-
-          </div>
+           </div>
         </section>
 
-        {/* Experience Highlights */}
-        <section className="w-full space-y-8">
-          <div className="flex items-center gap-4">
-             <div className="h-10 w-10 shrink-0 rounded-2xl bg-gradient-to-br from-emerald-500/10 to-teal-500/10 flex items-center justify-center border border-zinc-700/50">
-               <svg className="h-5 w-5 text-emerald-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-               </svg>
-             </div>
-             <h2 className="text-2xl font-bold tracking-tight">Experience</h2>
-          </div>
+        {/* Core Expertise Grid */}
+        <section className="space-y-6">
+          <h2 className="text-4xl sm:text-5xl font-black uppercase border-b-4 border-black pb-4 inline-block">Expertise</h2>
           
-          <div className="relative space-y-8 before:absolute before:inset-0 before:ml-[11px] before:-translate-x-px md:before:mx-auto md:before:translate-x-0 before:h-full before:w-0.5 before:bg-gradient-to-b before:from-transparent before:via-zinc-800 before:to-transparent">
-            {/* Item 1 */}
-            <div className="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group">
-              <div className="flex items-center justify-center w-6 h-6 rounded-full border-4 border-black bg-indigo-500 shadow shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2 z-10 transition-transform group-hover:scale-125 group-hover:bg-indigo-400 shadow-[0_0_10px_rgba(99,102,241,0.5)]" />
-              <div className="w-[calc(100%-3rem)] md:w-[calc(50%-2rem)] p-5 rounded-3xl border border-zinc-800/60 bg-zinc-900/40 backdrop-blur-md shadow-xl transition-all hover:-translate-y-1 hover:border-zinc-700/80">
-                <div className="flex items-center justify-between mb-3">
-                  <span className="text-xs font-bold text-indigo-400 tracking-wider uppercase">주임 연구원</span>
-                  <time className="text-xs font-semibold text-zinc-500 bg-zinc-900 px-2 py-1 rounded-full border border-zinc-800">24.05 - 26.01</time>
-                </div>
-                <h4 className="font-bold text-lg text-white mb-2">한국 기술 마켓</h4>
-                <p className="text-sm text-zinc-400 leading-relaxed">Turborepo 기반 모노레포 구축 및 FSD 아키텍처 최적화, 대규모 데이터 처리 화면 설계</p>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            {/* Tech Stack */}
+            <div className="bg-[#bbf7d0] brutal-border brutal-shadow p-6 flex flex-col text-center">
+              <h3 className="text-2xl font-black uppercase mb-6 bg-white border-2 border-black py-2 brutal-shadow-sm">
+                 Tech Stack
+              </h3>
+              <div className="flex flex-wrap gap-2 justify-center">
+                {['TypeScript', 'Next.js', 'React', 'TailwindCSS'].map(tech => (
+                  <span key={tech} className="bg-black text-white font-bold px-3 py-1 text-sm">{tech}</span>
+                ))}
               </div>
+              <p className="mt-4 font-bold text-sm text-left px-2">견고한 정적 타입과 최신 렌더링 패턴을 결합하여 빠르고 안정적인 제품을 구축합니다.</p>
             </div>
-            
-            {/* Item 2 */}
-            <div className="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group">
-              <div className="flex items-center justify-center w-6 h-6 rounded-full border-4 border-black bg-purple-500 shadow shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2 z-10 transition-transform group-hover:scale-125 group-hover:bg-purple-400 shadow-[0_0_10px_rgba(168,85,247,0.5)]" />
-              <div className="w-[calc(100%-3rem)] md:w-[calc(50%-2rem)] p-5 rounded-3xl border border-zinc-800/60 bg-zinc-900/40 backdrop-blur-md shadow-xl transition-all hover:-translate-y-1 hover:border-zinc-700/80">
-                <div className="flex items-center justify-between mb-3">
-                  <span className="text-xs font-bold text-purple-400 tracking-wider uppercase">리액트 튜터</span>
-                  <time className="text-xs font-semibold text-zinc-500 bg-zinc-900 px-2 py-1 rounded-full border border-zinc-800">23.12 - 25.05</time>
-                </div>
-                <h4 className="font-bold text-lg text-white mb-2">팀스파르타 (내배캠)</h4>
-                <p className="text-sm text-zinc-400 leading-relaxed">라이브 강의 및 AI 과제 리뷰 자동화 시스템 구축, 수강생 밀착 멘토링</p>
+
+            {/* Architecture */}
+            <div className="bg-[#ddd6fe] brutal-border brutal-shadow p-6 flex flex-col text-center">
+              <h3 className="text-2xl font-black uppercase mb-6 bg-white border-2 border-black py-2 brutal-shadow-sm">
+                 Architecture
+              </h3>
+              <div className="flex flex-wrap gap-2 justify-center">
+                {['FSD', 'Turborepo', 'Monorepo', 'Design System'].map(tech => (
+                  <span key={tech} className="bg-white border-2 border-black font-bold px-3 py-1 text-sm">{tech}</span>
+                ))}
               </div>
+              <p className="mt-4 font-bold text-sm text-left px-2">복잡한 조직과 대규모 도메인에서도 견고하게 유지보수 가능한 아키텍처를 설계합니다.</p>
+            </div>
+
+            {/* AI-Native */}
+            <div className="bg-[#fecaca] brutal-border brutal-shadow p-6 flex flex-col text-center sm:col-span-2 lg:col-span-1">
+              <h3 className="text-2xl font-black uppercase mb-6 bg-white border-2 border-black py-2 brutal-shadow-sm">
+                 AI Workflow
+              </h3>
+              <div className="flex flex-wrap gap-2 justify-center">
+                {['Claude Code', 'MCP', 'Multi-Agent', 'LLM Integration'].map(tech => (
+                  <span key={tech} className="bg-red-600 text-white font-bold px-3 py-1 text-sm">{tech}</span>
+                ))}
+              </div>
+              <p className="mt-4 font-bold text-sm text-left px-2">AI 에이전트 파이프라인을 설계하고 도구 기반 워크플로우를 전파합니다.</p>
             </div>
           </div>
         </section>
 
-        {/* Links */}
-        <footer className="mt-8 flex flex-col items-center justify-center gap-6 border-t border-zinc-800/40 pt-10 text-sm font-medium">
-          <div className="flex gap-4 sm:gap-6">
-            <a href="https://caesiumy.dev" target="_blank" className="flex items-center gap-2 text-zinc-400 hover:text-white transition-all p-2 px-4 rounded-xl hover:bg-zinc-800/50 border border-transparent hover:border-zinc-700/50">
-              <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1" /></svg>
-              Blog
-            </a>
-            <a href="https://github.com/caesiumy" target="_blank" className="flex items-center gap-2 text-zinc-400 hover:text-white transition-all p-2 px-4 rounded-xl hover:bg-zinc-800/50 border border-transparent hover:border-zinc-700/50">
-              <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path fillRule="evenodd" clipRule="evenodd" d="M12 2C6.477 2 2 6.477 2 12c0 4.42 2.87 8.17 6.84 9.5.5.08.66-.23.66-.5v-1.69c-2.77.6-3.36-1.34-3.36-1.34-.45-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.87 1.52 2.34 1.07 2.91.83.09-.65.35-1.09.63-1.34-2.22-.25-4.55-1.11-4.55-4.92 0-1.11.38-2 1.03-2.71-.1-.25-.45-1.29.1-2.64 0 0 .84-.27 2.75 1.02.79-.22 1.65-.33 2.5-.33.85 0 1.71.11 2.5.33 1.91-1.29 2.75-1.02 2.75-1.02.55 1.35.2 2.39.1 2.64.65.71 1.03 1.6 1.03 2.71 0 3.82-2.34 4.66-4.57 4.91.36.31.69.92.69 1.85V21c0 .27.16.59.67.5C19.14 20.16 22 16.42 22 12A10 10 0 0012 2z"/></svg>
-              GitHub
-            </a>
-            <a href="https://linkedin.com/in/chang-sik-yoon" target="_blank" className="flex items-center gap-2 text-zinc-400 hover:text-white transition-all p-2 px-4 rounded-xl hover:bg-zinc-800/50 border border-transparent hover:border-zinc-700/50">
-              <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
-              LinkedIn
-            </a>
+        {/* Experience & Community */}
+        <section className="space-y-6">
+          <h2 className="text-4xl sm:text-5xl font-black uppercase border-b-4 border-black pb-4 inline-block">Experience & Activity</h2>
+          
+          <div className="flex flex-col gap-6">
+            
+            {/* Experience Item */}
+            <div className="bg-white brutal-border brutal-shadow p-6 sm:p-8 flex flex-col md:flex-row gap-6 items-start">
+               <div className="md:w-1/3 flex flex-col">
+                  <span className="bg-black text-white font-bold px-2 py-1 text-sm w-max mb-2">24.05 - 26.01</span>
+                  <h3 className="text-2xl font-black uppercase">KC-MIC</h3>
+                  <span className="text-md font-bold text-zinc-600">주임 연구원 (프론트엔드)</span>
+               </div>
+               <div className="md:w-2/3">
+                  <p className="text-lg font-bold border-l-4 border-black pl-4 py-2 bg-zinc-100 pr-2">
+                    AI 연구 조직 내 프론트엔드 엔지니어로서, Turborepo 기반 대규모 모노레포 구축과 FSD 아키텍처 최적화를 주도했습니다. 대용량 데이터 처리 화면 설계 및 사용자 경험을 고도화했습니다.
+                  </p>
+               </div>
+            </div>
+
+            {/* Education Item */}
+            <div className="bg-white brutal-border brutal-shadow p-6 sm:p-8 flex flex-col md:flex-row gap-6 items-start">
+               <div className="md:w-1/3 flex flex-col">
+                  <span className="bg-black text-white font-bold px-2 py-1 text-sm w-max mb-2">23.12 - Present</span>
+                  <h3 className="text-2xl font-black uppercase">IT Education</h3>
+                  <span className="text-md font-bold text-zinc-600">튜터 / 메인 강사</span>
+               </div>
+               <div className="md:w-2/3">
+                  <p className="text-lg font-bold border-l-4 border-black pl-4 py-2 bg-yellow-100 pr-2">
+                    **팀스파르타(내배캠), 프로그래머스, 오즈코딩스쿨** 등 주요 부트캠프에서 프론트엔드 및 Next.js 강의를 주도하고 있습니다. 라이브 강의 진행 및 AI 과제 리뷰 자동화 시스템을 구축하여 학습 효율성을 극대화했습니다. 
+                  </p>
+               </div>
+            </div>
+
+            {/* Community Item */}
+            <div className="bg-white brutal-border brutal-shadow p-6 sm:p-8 flex flex-col md:flex-row gap-6 items-start">
+               <div className="md:w-1/3 flex flex-col">
+                  <span className="bg-black text-white font-bold px-2 py-1 text-sm w-max mb-2">Community</span>
+                  <h3 className="text-2xl font-black uppercase">Tech Network</h3>
+               </div>
+               <div className="md:w-2/3">
+                  <p className="text-lg font-bold border-l-4 border-black pl-4 py-2 bg-lime-100 pr-2">
+                    지식 공유와 개발자 네트워킹에 열정을 가지고 **소문난 주니어 콘퍼런스** 운영진 및 **PyCon 코리아** 자원봉사 등 다수의 커뮤니티 행사에 기여하고 있습니다.
+                  </p>
+               </div>
+            </div>
+
           </div>
-          <p className="text-zinc-600">© {new Date().getFullYear()} 윤창식. All rights reserved.</p>
+        </section>
+
+        {/* Footer / Mobile Links */}
+        <footer className="mt-12 border-t-4 border-black pt-12 flex flex-col sm:flex-row justify-between items-center gap-6">
+           <p className="text-xl font-black uppercase order-2 sm:order-1">© {new Date().getFullYear()} Chang-Sik Yoon</p>
+           
+           <div className="flex flex-wrap gap-4 justify-center order-1 sm:order-2">
+             <a href="https://caesiumy.dev" target="_blank" className="bg-yellow-400 brutal-border brutal-shadow px-6 py-3 font-black text-xl hover:-translate-y-1 transition-transform">
+               BLOG
+             </a>
+             <a href="https://github.com/caesiumy" target="_blank" className="bg-white brutal-border brutal-shadow px-6 py-3 font-black text-xl hover:-translate-y-1 transition-transform">
+               GITHUB
+             </a>
+             <a href="https://linkedin.com/in/chang-sik-yoon" target="_blank" className="bg-blue-400 brutal-border brutal-shadow px-6 py-3 font-black text-xl hover:-translate-y-1 transition-transform text-white">
+               LINKEDIN
+             </a>
+           </div>
         </footer>
+
       </main>
     </div>
   );
 }
+
